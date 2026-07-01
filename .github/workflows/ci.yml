@@ -29,7 +29,6 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      # ESLINT ahora NO rompe el pipeline
       - name: Ejecutar ESLint (solo advertencias)
         run: npm run lint || true
 
