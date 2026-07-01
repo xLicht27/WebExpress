@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './App.css';
 
 const MOCK_TRACKING_DATA = {
@@ -103,7 +103,6 @@ function App() {
         if (!L || !trackingData) return;
 
         if (!mapRef.current) {
-            // Mapa
             const map = L.map('map-container', {
                 zoomControl: false,
                 attributionControl: false
@@ -143,7 +142,6 @@ function App() {
 
     return (
         <div className="pikkup-app">
-            {/* NAVBAR */}
             <header className="pikkup-header">
                 <div className="header-container">
                     <div className="logo">Pikkup</div>
@@ -156,9 +154,7 @@ function App() {
                 </div>
             </header>
 
-            {/* main */}
             <main className="pikkup-main">
-                {/* seccion de busqueda */}
                 <section className="search-section">
                     <h1 className="search-title">Rastrea tu pedido</h1>
                     <p className="search-subtitle">
@@ -167,10 +163,9 @@ function App() {
 
                     <form className="search-form" onSubmit={handleSearch}>
                         <div className="input-group">
-                            <label htmlFor="tracking-input" className="input-label">Número de seguimiento</label>
+                            <label className="input-label">Número de seguimiento</label>
                             <div className="input-wrapper">
                                 <input
-                                    id="tracking-input"
                                     type="text"
                                     placeholder="Ej: PK-98234710"
                                     value={searchQuery}
@@ -179,110 +174,40 @@ function App() {
                                     required
                                 />
                                 <button type="submit" className="btn-search" disabled={isLoading}>
-                                    {isLoading ? (
-                                        <span className="spinner"></span>
-                                    ) : (
-                                        <>
-                                            <svg className="icon-search" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                            </svg>
-                                            Buscar
-                                        </>
-                                    )}
+                                    {isLoading ? 'Buscando...' : 'Buscar'}
                                 </button>
                             </div>
                         </div>
                     </form>
                 </section>
 
-                {/* grid */}
                 {trackingData && (
                     <section className="tracking-details-grid">
-                        {/* columna izquierda */}
                         <div className="details-left-card">
-                            <div className="left-card-header">
-                                <div>
-                                    <div className="tracking-id-label">Guía #{activeQuery}</div>
-                                    <h2 className="tracking-status-title">{trackingData.status}</h2>
-                                </div>
-                                <div className="badge-priority">
-                                    <svg className="icon-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <rect x="1" y="3" width="15" height="13" />
-                                        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
-                                        <circle cx="5.5" cy="18.5" r="2.5" />
-                                        <circle cx="18.5" cy="18.5" r="2.5" />
-                                    </svg>
-                                    {trackingData.badge}
-                                </div>
-                            </div>
-
-                            {/* cards */}
-                            <div className="info-cards-row">
-                                <div className="info-card">
-                                    <div className="info-card-label">Entrega estimada</div>
-                                    <div className="info-card-value">{trackingData.estimatedDelivery}</div>
-                                </div>
-                                <div className="info-card">
-                                    <div className="info-card-label">Origen</div>
-                                    <div className="info-card-value">{trackingData.origin}</div>
-                                </div>
-                            </div>
-
-                            {/* mapa */}
-                            <div className="map-wrapper">
-                                <div id="map-container" className="leaflet-map-element"></div>
-                            </div>
+                            <h2>{trackingData.status}</h2>
+                            <div id="map-container" className="leaflet-map-element"></div>
                         </div>
 
-                        {/* comlumna derechha */}
                         <div className="details-right-card">
-                            <h2 className="history-title">Historial de envío</h2>
-
-                            <div className="timeline-container">
-                                {trackingData.timeline.map((step, index) => (
-                                    <div key={index} className={`timeline-item ${step.state}`}>
-                                        {/* marcador visual */}
-                                        <div className="timeline-marker">
-                                            <div className="marker-node">
-                                                {step.state === 'completed' && (
-                                                    <svg className="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                                                        <polyline points="20 6 9 17 4 12" />
-                                                    </svg>
-                                                )}
-                                                {step.state === 'active' && (
-                                                    <div className="marker-active-dot"></div>
-                                                )}
-                                            </div>
-                                            {index < trackingData.timeline.length - 1 && (
-                                                <div className="marker-line"></div>
-                                            )}
-                                        </div>
-
-                                        {/* detalles */}
-                                        <div className="timeline-content">
-                                            <div className="timeline-date">{step.date}</div>
-                                            <h3 className="timeline-step-title">{step.title}</h3>
-                                            <p className="timeline-description">{step.description}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
+                            <h2>Historial de envío</h2>
+                            {trackingData.timeline.map((step, index) => (
+                                <div key={index}>
+                                    <strong>{step.title}</strong>
+                                    <p>{step.description}</p>
+                                </div>
+                            ))}
                         </div>
                     </section>
                 )}
             </main>
 
-            {/* FOOTER */}
             <footer className="pikkup-footer">
                 <div className="footer-container">
                     <div className="logo">Pikkup</div>
                     <div className="footer-links">
                         <a href="#ayuda">Ayuda</a>
-                        <a href="#privacidad">Acuerdos de privacidad</a>
-                        <a href="#servicio">Acuerdos de servicio</a>
-                    </div>
-                    <div className="footer-copyright">
-                        © 2026 Pikkup. Todos los derechos reservados.
+                        <a href="#privacidad">Privacidad</a>
+                        <a href="#servicio">Servicio</a>
                     </div>
                 </div>
             </footer>
