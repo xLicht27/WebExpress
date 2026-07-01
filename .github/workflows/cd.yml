@@ -22,10 +22,13 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      - name: Generar Build
+      - name: Build del proyecto
         run: npm run build
 
-      - name: Publicar artefacto
+      - name: Verificar build
+        run: ls dist
+
+      - name: Subir artefacto
         uses: actions/upload-artifact@v4
         with:
           name: WebExpress-Build
