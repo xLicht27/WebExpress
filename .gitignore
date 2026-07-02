@@ -22,3 +22,18 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Compiled files and temporary folders
+out/
+build/
+.cache/
+.parcel-cache/
+.eslintcache
+.temp/
+temp/
+*.tmp
+*.bak
+*.swp
+.vite/
+vite.config.js.timestamp-*
+
