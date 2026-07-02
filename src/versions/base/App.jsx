@@ -16,7 +16,6 @@ function BaseApp({ hideVersionLabel }) {
                         <a href="#ubicaciones" className="nav-link">Ubicaciones</a>
                         <a href="#support" className="nav-link">Support</a>
                     </nav>
-                    <button className="btn-login" onClick={() => alert('Inicio de sesión no implementado en esta versión.')}>Iniciar sesión</button>
                 </div>
             </header>
 
