@@ -83,7 +83,7 @@ const generateMockData = (code) => {
     };
 };
 
-function V3App() {
+function V3App({ hideVersionLabel }) {
     const [searchQuery, setSearchQuery] = useState('');
     const [activeQuery, setActiveQuery] = useState('PK-98234710');
     const [trackingData, setTrackingData] = useState(INITIAL_MOCK_DATA);
@@ -295,7 +295,7 @@ function V3App() {
         <div className={`pikkup-app version-v3 ${isDarkMode ? 'dark-mode' : ''}`}>
             <header className="pikkup-header">
                 <div className="header-container">
-                    <div className="logo">Pikkup <span className="version-label">V3 Premium</span></div>
+                    <div className="logo">Pikkup {!hideVersionLabel && <span className="version-label">V3 Premium</span>}</div>
                     <nav className="nav-menu">
                         <a href="#rastrear" className="nav-link active">Rastrear mi pedido</a>
                         <a href="#ubicaciones" className="nav-link">Ubicaciones</a>

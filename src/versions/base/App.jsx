@@ -1,6 +1,6 @@
 import '../../App.css';
 
-function BaseApp() {
+function BaseApp({ hideVersionLabel }) {
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         alert('Esta versión de la aplicación (Código Base) no incluye funcionalidad de búsqueda dinámica. Por favor, selecciona la Versión 1 o superior para interactuar con el sistema.');
@@ -10,7 +10,7 @@ function BaseApp() {
         <div className="pikkup-app version-base">
             <header className="pikkup-header">
                 <div className="header-container">
-                    <div className="logo">Pikkup <span className="version-label">Base</span></div>
+                    <div className="logo">Pikkup {!hideVersionLabel && <span className="version-label">Base</span>}</div>
                     <nav className="nav-menu">
                         <a href="#rastrear" className="nav-link active">Rastrear mi pedido</a>
                         <a href="#ubicaciones" className="nav-link">Ubicaciones</a>

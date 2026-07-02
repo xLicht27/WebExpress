@@ -64,7 +64,7 @@ const generateMockData = (code) => {
     };
 };
 
-function V1App() {
+function V1App({ hideVersionLabel }) {
     const [searchQuery, setSearchQuery] = useState('');
     const [trackingData, setTrackingData] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -85,7 +85,7 @@ function V1App() {
         <div className="pikkup-app version-v1">
             <header className="pikkup-header">
                 <div className="header-container">
-                    <div className="logo">Pikkup <span className="version-label">V1</span></div>
+                    <div className="logo">Pikkup {!hideVersionLabel && <span className="version-label">V1</span>}</div>
                     <nav className="nav-menu">
                         <a href="#rastrear" className="nav-link active">Rastrear mi pedido</a>
                         <a href="#ubicaciones" className="nav-link">Ubicaciones</a>
