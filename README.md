@@ -2,17 +2,17 @@
 
 ¡Bienvenido al repositorio de **WebExpress**! Este proyecto es una aplicación web interactiva para el rastreo y seguimiento de envíos llamada **Pikkup**. 
 
-El propósito principal de este repositorio es simular y demostrar el ciclo de vida y la evolución incremental de un producto de software, desde un prototipo estático inicial hasta una aplicación web premium completamente funcional con mapas dinámicos y simulación en tiempo real.
+El propósito principal de este repositorio es simular y demostrar el ciclo de vida y la evolución incremental de un producto de software, desde un prototipo estático inicial hasta una aplicación web premium de nivel corporativo con mapas dinámicos, simulación en tiempo real y flujos lógicos empresariales.
 
 ---
 
 ## 📈 Evolución y Versiones del Software
 
 Para simular cómo cambia el software a lo largo del tiempo, el repositorio está estructurado para ser visualizado de dos formas complementarias:
-1. **Simulador Interactivo en Vivo (Rama `main`):** Una barra de herramientas integrada en el entorno de desarrollo que permite alternar y probar las 4 versiones directamente desde el navegador de manera visual.
+1. **Simulador Interactivo en Vivo (Rama `main`):** Una barra de herramientas integrada en el entorno de desarrollo que permite alternar y probar las 5 versiones directamente desde el navegador de manera visual.
 2. **Ramas Históricas de Git (Código Limpio):** Ramas dedicadas donde el código fuente de la aplicación refleja *únicamente* el código correspondiente a esa etapa, ideal para auditorías de calidad o revisión de la evolución del código fuente.
 
-### Las 4 Etapas del Desarrollo:
+### Las 5 Etapas del Desarrollo:
 
 1. **📁 Código Base (Versión Estática):**
    - Representa el diseño visual inicial (Mockup).
@@ -31,8 +31,14 @@ Para simular cómo cambia el software a lo largo del tiempo, el repositorio est�
 
 4. **⚡ Versión 3 (Premium - Interfaz Avanzada, Simulación y Modo Oscuro):**
    - Línea de tiempo estilizada con iconos dinámicos y animaciones de pulso.
-   - **Simulación en Tiempo Real (Live Tracking):** Permite simular el movimiento físico del paquete en el mapa a lo largo de una ruta de entrega en Lima (de Callao a Miraflores), actualizando el mapa e historial dinámicamente.
-   - **Modo Oscuro (Dark Theme):** Switch de apariencia con transiciones de color suaves y mapas con estilos personalizados oscuros.
+   - **Simulación en Tiempo Real (Live Tracking):** Permite simular el movimiento físico del paquete en el mapa a lo largo de una ruta de entrega.
+   - **Modo Oscuro (Dark Theme):** Switch de apariencia con transiciones de color suaves y mapas oscuros.
+
+5. **🏆 Versión 4 (Olva/Urbano Pro - Interfaz Empresarial Completa):**
+   - **Pipeline Logístico Horizontal:** Visualiza el progreso (Registrado -> Clasificado -> En Ruta -> Entregado) con iconos dinámicos.
+   - **Ficha Courier Corporativa:** Muestra emisor, destinatario, peso, piezas y código de barras estilizado por CSS.
+   - **Simulación Avanzada de Ruta:** Dibuja el trayecto completo de entrega en el mapa y simula el movimiento del vehículo.
+   - **Descarga de Comprobante:** Permite imprimir u obtener el comprobante físico de entrega digital.
 
 ---
 
@@ -52,7 +58,8 @@ WebExpress/
 │   │   ├── base/            # Código inicial estático
 │   │   ├── v1/              # Versión con búsqueda y texto plano
 │   │   ├── v2/              # Versión con mapas Leaflet
-│   │   └── v3/              # Versión Premium, Modo Oscuro y Simulación
+│   │   ├── v3/              # Versión Premium, Modo Oscuro y Simulación
+│   │   └── v4/              # Versión Profesional estilo Olva/Urbano
 │   ├── App.css              # Hoja de estilos global y temas
 │   ├── App.jsx              # Panel principal / Selector de versiones
 │   ├── index.css            # Estilos de inicialización
@@ -88,7 +95,7 @@ Para ejecutar la aplicación localmente y ver el simulador en acción:
    *Abre en tu navegador la dirección que se muestre en consola (usualmente `http://localhost:5173`).*
 
 4. **Alterna entre Versiones:**
-   En la parte superior de la página, utiliza la barra de control para alternar dinámicamente entre el *Código Base*, *Versión 1*, *Versión 2* y *Versión 3*.
+   En la parte superior de la página, utiliza la barra de control para alternar dinámicamente entre el *Código Base*, *Versión 1*, *Versión 2*, *Versión 3* y *Versión 4*.
 
 ---
 
@@ -108,9 +115,13 @@ Si deseas inspeccionar el código de una versión específica de forma aislada (
   ```bash
   git checkout version/v2
   ```
-* **Para ver la Versión 3 (Premium / Final):**
+* **Para ver la Versión 3 (Premium):**
   ```bash
   git checkout version/v3
+  ```
+* **Para ver la Versión 4 (Olva/Urbano Pro):**
+  ```bash
+  git checkout version/v4
   ```
 * **Para regresar al Simulador de Evolución completo:**
   ```bash
