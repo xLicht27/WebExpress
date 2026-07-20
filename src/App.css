@@ -1660,4 +1660,493 @@
   }
 }
 
+/* ==========================================
+   ESTILOS DE LA VERSION 4 (OLVA PRO)
+   ========================================== */
+.barcode-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+  opacity: 0.85;
+}
+
+.barcode-stripe {
+  height: 48px;
+  width: 180px;
+  background: repeating-linear-gradient(
+    90deg,
+    #0f172a,
+    #0f172a 3px,
+    transparent 3px,
+    transparent 7px,
+    #0f172a 7px,
+    #0f172a 11px,
+    transparent 11px,
+    transparent 13px,
+    #0f172a 13px,
+    #0f172a 14px
+  );
+}
+
+.barcode-text {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  margin-top: 6px;
+  letter-spacing: 2px;
+}
+
+/* Stepper de Progreso Logístico */
+.progress-stepper-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 28px 40px;
+  margin-bottom: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.stepper-track-line {
+  position: absolute;
+  top: 48px;
+  left: 80px;
+  right: 80px;
+  height: 5px;
+  background-color: #e2e8f0;
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.stepper-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  width: 0%;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 4px;
+}
+
+.stepper-nodes {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.step-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+}
+
+.step-circle {
+  width: 44px;
+  height: 44px;
+  background: #ffffff;
+  border: 3px solid #cbd5e1;
+  color: #64748b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.step-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-top: 10px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.step-node.completed .step-circle {
+  border-color: #2563eb;
+  background: #e0f2fe;
+  color: #2563eb;
+}
+
+.step-node.completed .step-label {
+  color: #1e3a8a;
+}
+
+.step-node.active .step-circle {
+  border-color: #2563eb;
+  background: #2563eb;
+  color: #ffffff;
+  transform: scale(1.15);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.step-node.active .step-label {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+/* Ficha Courier de Datos */
+.courier-sheet-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.sheet-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sheet-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 0.5px;
+}
+
+.sheet-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* Detalle de Recepción */
+.delivery-receiver-box {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.delivery-receiver-box h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #166534;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.delivery-receiver-box p {
+  margin: 6px 0;
+  font-size: 0.85rem;
+  color: #14532d;
+}
+
+.courier-badge {
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.courier-badge.status-transit {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.courier-badge.status-delivered {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.courier-badge.status-warning {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+.courier-badge.status-error {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.btn-download-receipt {
+  background: none;
+  border: 1.5px solid #64748b;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 12px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.btn-download-receipt:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.timeline-location {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #2563eb;
+  background: #eff6ff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.version-v4 .version-label {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-left: 8px;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.map-wrapper-locations-v3 {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  min-height: 400px;
+  border: 1px solid var(--color-border);
+}
+
+/* ==========================================
+   ADAPTACIONES DE MODO OSCURO PARA V4
+   ========================================== */
+.version-v4.dark-mode {
+  background-color: #0b0f19;
+  color: #f1f5f9;
+}
+
+.version-v4.dark-mode .pikkup-header {
+  background-color: #111827;
+  border-bottom-color: #1f2937;
+}
+
+.version-v4.dark-mode .logo {
+  color: #ffffff;
+}
+
+.version-v4.dark-mode .barcode-stripe {
+  background: repeating-linear-gradient(
+    90deg,
+    #ffffff,
+    #ffffff 3px,
+    transparent 3px,
+    transparent 7px,
+    #ffffff 7px,
+    #ffffff 11px,
+    transparent 11px,
+    transparent 13px,
+    #ffffff 13px,
+    #ffffff 14px
+  );
+}
+
+.version-v4.dark-mode .barcode-text {
+  color: #94a3b8;
+}
+
+.version-v4.dark-mode .progress-stepper-card {
+  background: #111827;
+  border-color: #1f2937;
+}
+
+.version-v4.dark-mode .stepper-track-line {
+  background-color: #1f2937;
+}
+
+.version-v4.dark-mode .stepper-progress-fill {
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.version-v4.dark-mode .step-node .step-circle {
+  background: #111827;
+  border-color: #374151;
+  color: #94a3b8;
+}
+
+.version-v4.dark-mode .step-node.completed .step-circle {
+  border-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+.version-v4.dark-mode .step-node.completed .step-label {
+  color: #fef3c7;
+}
+
+.version-v4.dark-mode .step-node.active .step-circle {
+  border-color: #f59e0b;
+  background: #f59e0b;
+  color: #1e1b4b;
+  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.35);
+}
+
+.version-v4.dark-mode .step-node.active .step-label {
+  color: #f59e0b;
+}
+
+.version-v4.dark-mode .details-left-card {
+  background-color: #111827;
+}
+
+.version-v4.dark-mode .tracking-status-title {
+  color: #ffffff;
+}
+
+.version-v4.dark-mode .courier-sheet-grid {
+  background: #1f2937;
+  border-color: #374151;
+}
+
+.version-v4.dark-mode .sheet-label {
+  color: #94a3b8;
+}
+
+.version-v4.dark-mode .sheet-value {
+  color: #ffffff;
+}
+
+.version-v4.dark-mode .delivery-receiver-box {
+  background-color: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.version-v4.dark-mode .delivery-receiver-box h4 {
+  color: #34d399;
+}
+
+.version-v4.dark-mode .delivery-receiver-box p {
+  color: #a7f3d0;
+}
+
+.version-v4.dark-mode .btn-download-receipt {
+  border-color: #374151;
+  color: #94a3b8;
+}
+
+.version-v4.dark-mode .btn-download-receipt:hover {
+  background-color: #1f2937;
+  color: #ffffff;
+}
+
+.version-v4.dark-mode .details-right-card {
+  background-color: #111827;
+  border-color: #1f2937;
+}
+
+.version-v4.dark-mode .timeline-location {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.version-v4.dark-mode .timeline-step-title {
+  color: #ffffff;
+}
+
+.version-v4.dark-mode .timeline-description {
+  color: #94a3b8;
+}
+
+.version-v4.dark-mode .timeline-item.completed .marker-node {
+  background-color: #374151;
+}
+
+.version-v4.dark-mode .timeline-item.completed .marker-line {
+  background-color: #f59e0b;
+}
+
+.version-v4.dark-mode .timeline-item.completed .icon-check {
+  color: #94a3b8;
+}
+
+.version-v4.dark-mode .timeline-item.active .marker-node {
+  border-color: #f59e0b;
+  background-color: #111827;
+}
+
+.version-v4.dark-mode .marker-active-dot {
+  background-color: #f59e0b;
+}
+
+.version-v4.dark-mode .timeline-item.pending .marker-node {
+  border-color: #374151;
+  background-color: #111827;
+}
+
+.version-v4.dark-mode .timeline-item.pending .timeline-step-title,
+.version-v4.dark-mode .timeline-item.pending .timeline-description {
+  color: #4b5563;
+}
+
+.version-v4.dark-mode .timeline-item.active .timeline-step-title {
+  color: #f59e0b;
+}
+
+.version-v4.dark-mode .pikkup-footer {
+  background-color: #0f172a;
+  border-top-color: #1e293b;
+}
+
+.version-v4.dark-mode .footer-links a {
+  color: #94a3b8;
+}
+
+.version-v4.dark-mode .footer-links a:hover {
+  color: #f59e0b;
+}
+
+.version-v4.dark-mode .footer-copyright {
+  color: #64748b;
+}
+
+/* RESPONSIVE AJUSTES */
+@media (max-width: 900px) {
+  .progress-stepper-card {
+    padding: 20px;
+  }
+  
+  .stepper-track-line {
+    left: 40px;
+    right: 40px;
+  }
+  
+  .step-node {
+    width: 60px;
+  }
+  
+  .step-circle {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+  
+  .step-label {
+    font-size: 0.72rem;
+  }
+  
+  .courier-sheet-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+
 

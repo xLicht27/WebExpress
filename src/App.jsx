@@ -3,6 +3,7 @@ import BaseApp from './versions/base/App.jsx';
 import V1App from './versions/v1/App.jsx';
 import V2App from './versions/v2/App.jsx';
 import V3App from './versions/v3/App.jsx';
+import V4App from './versions/v4/App.jsx';
 import './App.css';
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
     const hasSimParam = queryParams.get('sim') === 'true' || queryParams.get('evolution') === 'true';
     
     const [isSimulatorActive, setIsSimulatorActive] = useState(hasSimParam);
-    const [activeVersion, setActiveVersion] = useState('v3');
+    const [activeVersion, setActiveVersion] = useState('v4');
 
     // Setup key listener to toggle the simulator using Ctrl + Shift + S
     useEffect(() => {
@@ -25,9 +26,9 @@ function App() {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, []);
 
-    // Standalone mode: Render clean final version without the simulator header
+    // Standalone mode: Render clean final version (V4 Olva Pro) without the simulator header
     if (!isSimulatorActive) {
-        return <V3App hideVersionLabel={true} />;
+        return <V4App hideVersionLabel={true} />;
     }
 
     // Demo mode: Render version simulator header bar
@@ -50,19 +51,25 @@ function App() {
                         className={`tab-btn ${activeVersion === 'v1' ? 'active' : ''}`}
                         onClick={() => setActiveVersion('v1')}
                     >
-                        🔍 Versión 1 (Búsqueda)
-                      </button>
+                        🔍 V1 (Búsqueda)
+                    </button>
                     <button 
                         className={`tab-btn ${activeVersion === 'v2' ? 'active' : ''}`}
                         onClick={() => setActiveVersion('v2')}
                     >
-                        🗺️ Versión 2 (Mapa)
+                        🗺️ V2 (Mapa)
                     </button>
                     <button 
                         className={`tab-btn ${activeVersion === 'v3' ? 'active' : ''}`}
                         onClick={() => setActiveVersion('v3')}
                     >
-                        ⚡ Versión 3 (Premium)
+                        ⚡ V3 (Premium)
+                    </button>
+                    <button 
+                        className={`tab-btn ${activeVersion === 'v4' ? 'active' : ''}`}
+                        onClick={() => setActiveVersion('v4')}
+                    >
+                        🏆 V4 (Courier Pro)
                     </button>
                 </div>
             </div>
@@ -73,6 +80,7 @@ function App() {
                 {activeVersion === 'v1' && <V1App hideVersionLabel={false} />}
                 {activeVersion === 'v2' && <V2App hideVersionLabel={false} />}
                 {activeVersion === 'v3' && <V3App hideVersionLabel={false} />}
+                {activeVersion === 'v4' && <V4App hideVersionLabel={false} />}
             </div>
         </div>
     );
