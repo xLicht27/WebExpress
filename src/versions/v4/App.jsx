@@ -22,6 +22,7 @@ const MOCK_TRACKING_DATA = {
         recipient: 'JEAN D*** D***Z',
         weight: '1.20 Kg',
         pieces: '1 de 1',
+        coordinates: [-12.0950, -77.0600],
         progressStep: 2, // 0: Registrado, 1: Clasificado, 2: En ruta, 3: Entregado
         timeline: [
             { date: '22 Oct, 14:30', location: 'CALLAO - CENTRAL', title: 'En tránsito local', description: 'En tránsito hacia el centro de distribución local.', state: 'active' },
@@ -41,6 +42,7 @@ const MOCK_TRACKING_DATA = {
         recipient: 'JEAN D*** D***Z',
         weight: '3.50 Kg',
         pieces: '1 de 1',
+        coordinates: [-12.1223, -77.0298],
         progressStep: 3,
         receiverName: 'JEAN DIAZ DIAZ',
         receiverDni: '72******',
@@ -63,6 +65,7 @@ const MOCK_TRACKING_DATA = {
         recipient: 'CORPORACION LOG. PERU',
         weight: '12.80 Kg',
         pieces: '2 de 2',
+        coordinates: [-12.0464, -77.1200],
         progressStep: 1,
         timeline: [
             { date: 'Hoy, 09:00', location: 'CALLAO - ADUANA AEREA', title: 'Retenido en aduanas', description: 'Paquete retenido para inspección física y homologación de mercancía.', state: 'active' },
@@ -82,14 +85,17 @@ const MOCK_TRACKING_DATA = {
         recipient: 'EDUARDO D*** R***S',
         weight: '0.85 Kg',
         pieces: '1 de 1',
+        coordinates: [-12.0833, -77.0833],
         progressStep: 1,
         timeline: [
             { date: 'Ayer, 10:00', location: 'LIMA - CENTRAL', title: 'Exceso de franquicia', description: 'Envío supera límite de USD 200. Esperando pago de aranceles SUNAT.', state: 'active' },
             { date: '29 Jun, 15:00', location: 'CALLAO - ADUANAS', title: 'En inspección', description: 'Ingreso a canal de inspección aduanera y aforo.', state: 'completed' },
-            { date: '28 Jun, 08:00', location: 'CALLAO - PUERTO', title: 'Llegada a puerto', description: 'Llegada de embarcación al puerto del Callao.', state: 'completed' }
+            { date: '28 Jun, 08:00', location: 'CALLAO - PUERTO', title: 'Llegada a puerto', description: 'Llegada de la embarcación al puerto del Callao.', state: 'completed' }
         ]
     }
 };
+
+
 
 const LIMA_OFFICES = [
     { id: 'callao', name: 'Sede Principal Callao', coords: [-12.0464, -77.1200], address: 'Av. Elmer Faucett 150, Callao', hours: 'Lun-Vie 8:00 AM - 6:00 PM | Sáb 9:00 AM - 1:00 PM', phone: '(01) 511-2000' },
